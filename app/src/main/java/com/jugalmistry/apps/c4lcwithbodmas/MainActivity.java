@@ -111,9 +111,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(gotAnswer) {
                     expressionTV.setText(answerTV.getText());
+                    answerTV.setText(" ");
+                    gotAnswer = false;
                 }
                 if(dotTest){
-                    Button button = (Button) v;
                     expressionTV.append(".");
                     dotTest = false;
                 }
@@ -163,6 +164,7 @@ public class MainActivity extends AppCompatActivity {
         if(gotAnswer){
             expressionTV.setText(answerTV.getText());
             answerTV.setText(" ");
+            gotAnswer = false;
         }
         Button button = (Button) v;
         expressionTV.append(button.getText());
