@@ -84,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
                     answerTV.setText(" " + a);
                     gotAnswer = true;
                     expressionTV.setText("");
+                    dotTest = false;
                 } catch (ArithmeticException e){
                     Toast.makeText(MainActivity.this,"Mathematical Error",Toast.LENGTH_LONG).show();
                     gotAnswer = false;
@@ -108,6 +109,9 @@ public class MainActivity extends AppCompatActivity {
         bDot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(gotAnswer) {
+                    expressionTV.setText(answerTV.getText());
+                }
                 if(dotTest){
                     Button button = (Button) v;
                     expressionTV.append(".");
@@ -122,6 +126,8 @@ public class MainActivity extends AppCompatActivity {
                 if(gotAnswer){
                     expressionTV.setText(answerTV.getText());
                     answerTV.setText("");
+                    gotAnswer = false;
+                    answerTV.setText(" ");
                     gotAnswer = false;
                 }
                 String current = expressionTV.getText().toString();
